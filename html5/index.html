@@ -43,7 +43,8 @@
                         <button type="submit" class="btn btn-default" ng-click="addSkater(newskater)">Create</button>
                     </form>
                 </li>
-                <li ng-repeat="skater in skaters | orderBy:sort">
+                <li><button class="btn btn-primary" ng-click="jam()">Jam</button></li>
+                <li ng-repeat="skater in skaters | orderBy:sort" class="jamAgo-{{skater.jamsAgo}}">
                     <form class="form-inline" role="form">
                         <div class="form-group">
                             <span ng-bind="skater.name"></span>

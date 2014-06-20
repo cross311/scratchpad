@@ -96,7 +96,27 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.jamAgo-0 {
 
+}
+.jamAgo-1 {
+    background-color: #FF0000;  
+    opacity:0.2;  
+}
+.jamAgo-2 {
+    background-color: #FF0000; 
+    opacity:0.4;  
+    
+}
+.jamAgo-3 {
+    background-color: #FF0000; 
+    opacity:0.6;  
+    
+}
+.jamAgo-4 {
+    background-color: #FF0000; 
+    opacity:0.8;
+}
 
 
 
