@@ -21,76 +21,32 @@
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div id="main" class="container">
+<div id="main" class="container" ng-app ng-controller="lineupsCtrl">
     <div id="manageSkaters" class="row">
         <h2>Manage Skaters</h2>
         <div id="skaters" class="list-group">
-            <div class="list-group-item">
+            <div class="list-group-item" ng-repeat="skater in skaters">
                 <div class="input-group">
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Otter Manic">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" ng-model="skater.name">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default active">Jammer</button>
-                        <button type="button" class="btn btn-default">Pivot</button>
-                        <button type="button" class="btn btn-default">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
-                    </span>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="input-group">
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Aimes To Maime">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default active">Jammer</button>
-                        <button type="button" class="btn btn-default active">Pivot</button>
-                        <button type="button" class="btn btn-default active">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
-                    </span>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="input-group">
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Jimmy Rage">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default active">Jammer</button>
-                        <button type="button" class="btn btn-default ">Pivot</button>
-                        <button type="button" class="btn btn-default ">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
-                    </span>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="input-group">
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Tank Loyd Wright">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">Jammer</button>
-                        <button type="button" class="btn btn-default">Pivot</button>
-                        <button type="button" class="btn btn-default active">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
-                    </span>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="input-group">
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Ace Of Skates">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">Jammer</button>
-                        <button type="button" class="btn btn-default">Pivot</button>
-                        <button type="button" class="btn btn-default active">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.jammer}" ng-click="jammer(skater)">Jammer</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.pivot}" ng-click="pivot(skater)">Pivot</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.trackLead}" ng-click="trackLead(skater)">Track Lead</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.blocker}" ng-click="blocker(skater)">Blocker</button>
                     </span>
                 </div>
             </div>
             <div id="newSkater" class="list-group-item">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">Add</button>
+                        <button class="btn btn-primary" type="button" ng-click="addSkater(newskater)">Add</button>
                     </span>
-                    <input type="text" placeholder="Skater Name" name="name" class="form-control">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" ng-model="newskater.name">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">Jammer</button>
-                        <button type="button" class="btn btn-default">Pivot</button>
-                        <button type="button" class="btn btn-default">Track Lead</button>
-                        <button type="button" class="btn btn-default active">Blocker</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:newskater.jammer}" ng-click="jammer(newskater)">Jammer</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:newskater.pivot}" ng-click="pivot(newskater)">Pivot</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:newskater.trackLead}" ng-click="trackLead(newskater)">Track Lead</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:newskater.blocker}" ng-click="blocker(newskater)">Blocker</button>
                     </span>
                 </div>
             </div>
@@ -422,32 +378,12 @@
     <div id="chooseSkater" class="row">
         <h2 class="list-group-item-heading">Choose A Skater</h2>
         <div class="list-group">
-            <a href="#" class="list-group-item">
-                Otter Manic
-                <span class="badge badge-blocker">Blocker</span>
-                <span class="badge badge-jammer">Jammer</span>
-            </a>
-            <a href="#" class="list-group-item">
-                Aimes To Maime
-                <span class="badge badge-blocker">Blocker</span>
-                <span class="badge badge-tracklead">Track Lead</span>
-                <span class="badge badge-pivot">Pivot</span>
-                <span class="badge badge-jammer">Jammer</span>
-            </a>
-            <a href="#" class="list-group-item">
-                Jimmy Rage
-                <span class="badge badge-blocker">Blocker</span>
-                <span class="badge badge-jammer">Jammer</span>
-            </a>
-            <a href="#" class="list-group-item">
-                Tank Loyd Wright
-                <span class="badge badge-blocker">Blocker</span>
-                <span class="badge badge-tracklead">Track Lead</span>
-            </a>
-            <a href="#" class="list-group-item">
-                Ace Of Skates
-                <span class="badge badge-blocker">Blocker</span>
-                <span class="badge badge-tracklead">Track Lead</span>
+            <a href="#" class="list-group-item" ng-repeat="skater in skaters | orderBy:'name'">
+                <span class="skater-name" ng-bind="skater.name"></span>
+                <span class="badge badge-blocker" ng-show="skater.blocker">Blocker</span>
+                <span class="badge badge-tracklead" ng-show="skater.trackLead">Track Lead</span>
+                <span class="badge badge-pivot" ng-show="skater.pivot">Pivot</span>
+                <span class="badge badge-jammer" ng-show="skater.jammer">Jammer</span>
             </a>
         </div>
     </div>
