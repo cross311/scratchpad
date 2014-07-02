@@ -133,8 +133,23 @@ textarea {
 }
 
 
+#boutLineup table > tbody > tr > td {
+    cursor: pointer;
+    border: 1px dotted transparent;
+}
 
+#boutLineup table > tbody > tr > td:hover {
+    border: 1px solid #3071a9;
+}
 
+#boutLineup table > tbody > tr > td:first-child {
+    cursor: inherit;
+    border: 1px dotted transparent;
+}
+
+#boutLineup table > tbody > tr > td:first-child:hover {
+    border: 1px dotted transparent;
+}
 
 
 
