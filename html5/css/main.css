@@ -97,7 +97,40 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.skater-positions {
+    margin-bottom: 5px;
+}
 
+.skater-stat {
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.skater-stat > .skater-stat-heading {
+    color: #333333;
+    background-color: #f5f5f5;
+    padding: 2px 5px;
+    margin-top:0px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #dddddd;
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+}
+
+.skater-stat-number {
+    padding: 2px;
+    font-size:24px;
+}
+
+.skater-stat-number:after {
+    clear: both;
+}
 
 
 

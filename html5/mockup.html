@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Derby Lineups</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body >
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="main" class="container">
+    <div id="manageSkaters" class="row">
+        <h2>Manage Skaters</h2>
+        <div id="skaters" class="list-group">
+            <div class="list-group-item">
+                <div class="input-group">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Otter Manic">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default active">Jammer</button>
+                        <button type="button" class="btn btn-default">Pivot</button>
+                        <button type="button" class="btn btn-default">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="input-group">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Aimes To Maime">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default active">Jammer</button>
+                        <button type="button" class="btn btn-default active">Pivot</button>
+                        <button type="button" class="btn btn-default active">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="input-group">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Jimmy Rage">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default active">Jammer</button>
+                        <button type="button" class="btn btn-default ">Pivot</button>
+                        <button type="button" class="btn btn-default ">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="input-group">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Tank Loyd Wright">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">Jammer</button>
+                        <button type="button" class="btn btn-default">Pivot</button>
+                        <button type="button" class="btn btn-default active">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="input-group">
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control" value="Ace Of Skates">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">Jammer</button>
+                        <button type="button" class="btn btn-default">Pivot</button>
+                        <button type="button" class="btn btn-default active">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+            <div id="newSkater" class="list-group-item">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Add</button>
+                    </span>
+                    <input type="text" placeholder="Skater Name" name="name" class="form-control">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">Jammer</button>
+                        <button type="button" class="btn btn-default">Pivot</button>
+                        <button type="button" class="btn btn-default">Track Lead</button>
+                        <button type="button" class="btn btn-default active">Blocker</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="boutStatistics" class="row">
+        <h2>Bout Statistics</h2>
+        <div class="col-md-4">
+            <div class="panel panel-default skater-stats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Otter Manic</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="skater-positions col-sm-12">
+                        <span class="badge badge-jammer">Jammer</span>
+                        <span class="badge badge-blocker">Blocker</span>
+                    </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Jams</h6>
+                        <span class="skater-stat-number">6</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Penalties</h6>
+                        <span class="skater-stat-number">1</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Sat</h6>
+                        <span class="skater-stat-number">1</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Jammer</h6>
+                        <span class="skater-stat-number">1</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Pivot</h6>
+                        <span class="skater-stat-number">0</span>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Blocker</h6>
+                        <span class="skater-stat-number">10</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default skater-stats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Aimes To Maime</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="skater-positions col-sm-12">
+                        <span class="badge badge-jammer">Jammer</span>
+                        <span class="badge badge-pivot">Pivot</span>
+                        <span class="badge badge-tracklead">Track Lead</span>
+                        <span class="badge badge-blocker">Blocker</span>
+                    </div>
+                <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Jams</h6>
+                        <span class="skater-stat-number">7</span>
+                    </div>
+                </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Penalties</h6>
+                        <span class="skater-stat-number">1</span>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Sat</h6>
+                        <span class="skater-stat-number">0</span>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Jammer</h6>
+                        <span class="skater-stat-number">1</span>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Pivot</h6>
+                        <span class="skater-stat-number">4</span>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="skater-stat ">
+                        <h6 class="skater-stat-heading">Blocker</h6>
+                        <span class="skater-stat-number">2</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default skater-stats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Jimmy Rage</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="skater-positions col-sm-12">
+                        <span class="badge badge-jammer">Jammer</span>
+                        <span class="badge badge-blocker">Blocker</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jams</h6>
+                            <span class="skater-stat-number">7</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Penalties</h6>
+                            <span class="skater-stat-number">1</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Sat</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jammer</h6>
+                            <span class="skater-stat-number">1</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Pivot</h6>
+                            <span class="skater-stat-number">4</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Blocker</h6>
+                            <span class="skater-stat-number">2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default skater-stats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Tank Loyd Wright</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="skater-positions col-sm-12">
+                        <span class="badge badge-tracklead">Track Lead</span>
+                        <span class="badge badge-blocker">Blocker</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jams</h6>
+                            <span class="skater-stat-number">7</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Penalties</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Sat</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jammer</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Pivot</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Blocker</h6>
+                            <span class="skater-stat-number">7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default skater-stats">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Ace Of Skates</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="skater-positions col-sm-12">
+                        <span class="badge badge-tracklead">Track Lead</span>
+                        <span class="badge badge-blocker">Blocker</span>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jams</h6>
+                            <span class="skater-stat-number">7</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Penalties</h6>
+                            <span class="skater-stat-number">3</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Sat</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Jammer</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Pivot</h6>
+                            <span class="skater-stat-number">0</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="skater-stat ">
+                            <h6 class="skater-stat-heading">Blocker</h6>
+                            <span class="skater-stat-number">7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="boutLineup" class="row">
+        <h2>Bout Lineup</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Jam</th>
+                <th>Jammer</th>
+                <th>Pivot</th>
+                <th>Blocker</th>
+                <th>Blocker</th>
+                <th>Blocker</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Otter Manic</td>
+                <td>Aimes To Maime</td>
+                <td>Jimmy Rage</td>
+                <td>Tank Loyd Wright</td>
+                <td>Ace of Skates</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="chooseSkater" class="row">
+        <h2 class="list-group-item-heading">Choose A Skater</h2>
+        <div class="list-group">
+            <div class="list-group-item">
+                Otter Manic
+                <span class="badge badge-blocker">Blocker</span>
+                <span class="badge badge-jammer">Jammer</span>
+            </div>
+            <div class="list-group-item">
+                Aimes To Maime
+                <span class="badge badge-blocker">Blocker</span>
+                <span class="badge badge-tracklead">Track Lead</span>
+                <span class="badge badge-pivot">Pivot</span>
+                <span class="badge badge-jammer">Jammer</span>
+            </div>
+            <div class="list-group-item">
+                Jimmy Rage
+                <span class="badge badge-blocker">Blocker</span>
+                <span class="badge badge-jammer">Jammer</span>
+            </div>
+            <div class="list-group-item">
+                Tank Loyd Wright
+                <span class="badge badge-blocker">Blocker</span>
+                <span class="badge badge-tracklead">Track Lead</span>
+            </div>
+            <div class="list-group-item">
+                Ace Of Skates
+                <span class="badge badge-blocker">Blocker</span>
+                <span class="badge badge-tracklead">Track Lead</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>-->
+<script>window.angular || document.write('<script src="js/vendor/angular-1.2.6/angular.min.js"><\/script>')</script>
+<script src="js/mockup.js"></script>
+</body>
+</html>
