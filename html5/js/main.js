@@ -1,7 +1,7 @@
 
 var lineupsCtrl = function($scope) {
     var counter = 0;
-    var createSkater = function(){return {name:'',jammer:false,pivot:false,counter:counter++};}
+    var createSkater = function(){return {name:'',jammer:false,pivot:false,counter:counter++,jamsAgo:0};}
     $scope.sort = '+counter'
     $scope.newskater = createSkater();
     $scope.skaters = [];
@@ -13,14 +13,23 @@ var lineupsCtrl = function($scope) {
 
     $scope.blocker = function(skater){
         skater.counter = counter++;
+        skater.jamsAgo = 0;
     };
 
     $scope.jammer = function(skater){
         skater.counter = counter++ + 5;
+        skater.jamsAgo = 0;
     };
 
     $scope.pivot = function(skater){
         skater.counter = counter++;
+        skater.jamsAgo = 0;
+    };
+
+    $scope.jam = function(){
+        for (var i = 0; i < $scope.skaters.length; i++) {
+            $scope.skaters[i].jamsAgo++;
+        };
     };
 
     var skaterFactory = function(name, jammer, pivot){
