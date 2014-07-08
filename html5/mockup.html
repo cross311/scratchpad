@@ -25,14 +25,14 @@
     <div id="manageSkaters" class="row">
         <h2>Manage Skaters</h2>
         <div id="skaters" class="list-group">
-            <div class="list-group-item" ng-repeat="skater in skaters">
+            <div class="list-group-item" ng-repeat="skater in availableSkaters">
                 <div class="input-group">
                     <input type="text" placeholder="Skater Name" name="name" class="form-control" ng-model="skater.name">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-class="{active:skater.jammer}" ng-click="jammer(skater)">Jammer</button>
-                        <button type="button" class="btn btn-default" ng-class="{active:skater.pivot}" ng-click="pivot(skater)">Pivot</button>
-                        <button type="button" class="btn btn-default" ng-class="{active:skater.trackLead}" ng-click="trackLead(skater)">Track Lead</button>
-                        <button type="button" class="btn btn-default" ng-class="{active:skater.blocker}" ng-click="blocker(skater)">Blocker</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.jammer}" ng-click="skater.toggleJammer()">Jammer</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.pivot}" ng-click="skater.togglePivot()">Pivot</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.tracklead}" ng-click="skater.toggleTracklead()">Track Lead</button>
+                        <button type="button" class="btn btn-default" ng-class="{active:skater.blocker}" ng-click="skater.toggleBlocker()">Blocker</button>
                     </span>
                 </div>
             </div>
@@ -54,248 +54,52 @@
     </div>
     <div id="boutStatistics" class="row">
         <h2>Bout Statistics</h2>
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="skater in skaters | orderBy:'name()'">
             <div class="panel panel-default skater-stats">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Otter Manic</h4>
+                    <h4 class="panel-title" ng-bind="skater.name()"></h4>
                 </div>
                 <div class="panel-body">
                     <div class="skater-positions col-sm-12">
-                        <span class="badge badge-jammer">Jammer</span>
-                        <span class="badge badge-blocker">Blocker</span>
-                    </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Jams</h6>
-                        <span class="skater-stat-number">7</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Penalties</h6>
-                        <span class="skater-stat-number">1</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Sat</h6>
-                        <span class="skater-stat-number">1</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Jammer</h6>
-                        <span class="skater-stat-number">1</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Pivot</h6>
-                        <span class="skater-stat-number">0</span>
-                    </div>
-                    </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Blocker</h6>
-                        <span class="skater-stat-number">10</span>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default skater-stats">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Aimes To Maime</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="skater-positions col-sm-12">
-                        <span class="badge badge-jammer">Jammer</span>
-                        <span class="badge badge-pivot">Pivot</span>
-                        <span class="badge badge-tracklead">Track Lead</span>
-                        <span class="badge badge-blocker">Blocker</span>
-                    </div>
-                <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Jams</h6>
-                        <span class="skater-stat-number">7</span>
-                    </div>
-                </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Penalties</h6>
-                        <span class="skater-stat-number">1</span>
-                    </div>
-                    </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Sat</h6>
-                        <span class="skater-stat-number">0</span>
-                    </div>
-                    </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Jammer</h6>
-                        <span class="skater-stat-number">1</span>
-                    </div>
-                    </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Pivot</h6>
-                        <span class="skater-stat-number">4</span>
-                    </div>
-                    </div>
-                    <div class="col-sm-4">
-                    <div class="skater-stat ">
-                        <h6 class="skater-stat-heading">Blocker</h6>
-                        <span class="skater-stat-number">2</span>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default skater-stats">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Jimmy Rage</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="skater-positions col-sm-12">
-                        <span class="badge badge-jammer">Jammer</span>
-                        <span class="badge badge-blocker">Blocker</span>
+                        <span class="badge badge-jammer" ng-show="skater.jammer()">Jammer</span>
+                        <span class="badge badge-pivot" ng-show="skater.pivot()">Pivot</span>
+                        <span class="badge badge-tracklead" ng-show="skater.tracklead()">Track Lead</span>
+                        <span class="badge badge-blocker" ng-show="skater.blocker()">Blocker</span>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Jams</h6>
-                            <span class="skater-stat-number">7</span>
+                            <span class="skater-stat-number" ng-bind="skater.jams">0</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Penalties</h6>
-                            <span class="skater-stat-number">1</span>
+                            <span class="skater-stat-number" ng-bind="skater.penalties">0</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Sat</h6>
-                            <span class="skater-stat-number">0</span>
+                            <span class="skater-stat-number" ng-bind="skater.sits">0</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Jammer</h6>
-                            <span class="skater-stat-number">1</span>
+                            <span class="skater-stat-number" ng-bind="skater.timesJammer">0</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Pivot</h6>
-                            <span class="skater-stat-number">4</span>
+                            <span class="skater-stat-number" ng-bind="skater.timesPivot">0</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="skater-stat ">
                             <h6 class="skater-stat-heading">Blocker</h6>
-                            <span class="skater-stat-number">2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default skater-stats">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Tank Loyd Wright</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="skater-positions col-sm-12">
-                        <span class="badge badge-tracklead">Track Lead</span>
-                        <span class="badge badge-blocker">Blocker</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Jams</h6>
-                            <span class="skater-stat-number">7</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Penalties</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Sat</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Jammer</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Pivot</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Blocker</h6>
-                            <span class="skater-stat-number">7</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default skater-stats">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Ace Of Skates</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="skater-positions col-sm-12">
-                        <span class="badge badge-tracklead">Track Lead</span>
-                        <span class="badge badge-blocker">Blocker</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Jams</h6>
-                            <span class="skater-stat-number">7</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Penalties</h6>
-                            <span class="skater-stat-number">3</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Sat</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Jammer</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Pivot</h6>
-                            <span class="skater-stat-number">0</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="skater-stat ">
-                            <h6 class="skater-stat-heading">Blocker</h6>
-                            <span class="skater-stat-number">7</span>
+                            <span class="skater-stat-number" ng-bind="skater.timesBlocker">0</span>
                         </div>
                     </div>
                 </div>
@@ -313,77 +117,52 @@
                 <th>Blocker</th>
                 <th>Blocker</th>
                 <th>Blocker</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Otter Manic</td>
-                <td>Aimes To Maime</td>
-                <td>Tank Loyd Wright</td>
-                <td>Ace of Skates <span class="glyphicon glyphicon-circle-arrow-right"></span> <span class="glyphicon glyphicon-circle-arrow-down"></span></td>
-                <td>Jimmy Rage</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jimmy Rage</td>
-                <td>Tank Loyd Wright</td>
-                <td>Aimes To Maime</td>
-                <td>Ace of Skates <span class="glyphicon glyphicon-circle-arrow-up"></span></td>
-                <td>Otter Manic</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Otter Manic</td>
-                <td>Ace of Skates</td>
-                <td>Aimes To Maime</td>
-                <td>Jimmy Rage</td>
-                <td>Tank Loyd Wright</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Jimmy Rage</td>
-                <td>Aimes To Maime</td>
-                <td>Tank Loyd Wright</td>
-                <td>Ace of Skates</td>
-                <td>Otter Manic</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Otter Manic <span class="glyphicon glyphicon-circle-arrow-right"></span></td>
-                <td>Tank Loyd Wright</td>
-                <td>Aimes To Maime <span class="glyphicon glyphicon-circle-arrow-right"></span></td>
-                <td>Jimmy Rage</td>
-                <td>Ace of Skates</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Jimmy Rage</td>
-                <td>Ace of Skates <span class="glyphicon glyphicon-circle-arrow-right"></span></td>
-                <td>Tank Loyd Wright</td>
-                <td>Aimes To Maime</td>
-                <td>Otter Manic</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Otter Manic</td>
-                <td>Aimes To Maime</td>
-                <td>Ace of Skates</td>
-                <td>Jimmy Rage <span class="glyphicon glyphicon-circle-arrow-right"></span></td>
-                <td>Tank Loyd Wright</td>
+            <tr ng-repeat="jam in jams" ng-class="{done:jam.complete}">
+                <td ng-dblclick="toggleJam(jam)">
+                    <span ng-bind="jam.number" ></span>
+                </td>
+                <td ng-dblclick='chooseJammer(jam)' ng-click="jam.jammer.togglePenatly()" title="Click to mark as in box. Double click to change skater.">
+                    <span ng-bind="jam.jammer.name()"></span>
+                    <span ng-repeat="penalty in jam.jammer.penalties" ng-dblclick="penalty.delete()" class="penalty glyphicon " ng-class="{active: penalty.active, 'glyphicon-circle-arrow-right':!penalty.carriedIntoNextJam, 'glyphicon-circle-arrow-down': penalty.carriedIntoNextJam}" title="Double click to delete."></span>
+                </td>
+                <td ng-dblclick='choosePivot(jam)' ng-click="jam.pivot.togglePenatly()" title="Click to mark as in box. Double click to change skater.">
+                    <span ng-bind="jam.pivot.name()"></span>
+                    <span ng-repeat="penalty in jam.pivot.penalties" ng-dblclick="penalty.delete()" class="penalty glyphicon " ng-class="{active: penalty.active, 'glyphicon-circle-arrow-right':!penalty.carriedIntoNextJam, 'glyphicon-circle-arrow-down': penalty.carriedIntoNextJam}" title="Double click to delete."></span>
+                </td>
+                <td ng-dblclick='chooseBlocker1(jam)' ng-click="jam.blocker1.togglePenatly()" title="Click to mark as in box. Double click to change skater.">
+                    <span ng-bind="jam.blocker1.name()"></span>
+                    <span ng-repeat="penalty in jam.blocker1.penalties" ng-dblclick="penalty.delete()" class="penalty glyphicon " ng-class="{active: penalty.active, 'glyphicon-circle-arrow-right':!penalty.carriedIntoNextJam, 'glyphicon-circle-arrow-down': penalty.carriedIntoNextJam}" title="Double click to delete."></span>
+                </td>
+                <td ng-dblclick='chooseBlocker2(jam)' ng-click="jam.blocker2.togglePenatly()" title="Click to mark as in box. Double click to change skater.">
+                    <span ng-bind="jam.blocker2.name()"></span>
+                    <span ng-repeat="penalty in jam.blocker2.penalties" ng-dblclick="penalty.delete()" class="penalty glyphicon " ng-class="{active: penalty.active, 'glyphicon-circle-arrow-right':!penalty.carriedIntoNextJam, 'glyphicon-circle-arrow-down': penalty.carriedIntoNextJam}" title="Double click to delete."></span>
+                </td>
+                <td ng-dblclick='chooseBlocker3(jam)' ng-click="jam.blocker3.togglePenatly()" title="Click to mark as in box. Double click to change skater.">
+                    <span ng-bind="jam.blocker3.name()"></span>
+                    <span ng-repeat="penalty in jam.blocker3.penalties" ng-dblclick="penalty.delete()" class="penalty glyphicon " ng-class="{active: penalty.active, 'glyphicon-circle-arrow-right':!penalty.carriedIntoNextJam, 'glyphicon-circle-arrow-down': penalty.carriedIntoNextJam}" title="Double click to delete."></span>
+                </td>
             </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="7"><button class="btn btn-primary pull-right" ng-click="addJam()"><span class="glyphicon glyphicon-plus"></span> Add Jam</button></td>
+            </tr>
+            </tfoot>
         </table>
     </div>
     <div id="chooseSkater" class="row">
         <h2 class="list-group-item-heading">Choose A Skater</h2>
         <div class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="skater in skaters | orderBy:'name'">
-                <span class="skater-name" ng-bind="skater.name"></span>
-                <span class="badge badge-blocker" ng-show="skater.blocker">Blocker</span>
-                <span class="badge badge-tracklead" ng-show="skater.trackLead">Track Lead</span>
-                <span class="badge badge-pivot" ng-show="skater.pivot">Pivot</span>
-                <span class="badge badge-jammer" ng-show="skater.jammer">Jammer</span>
+            <a href="#boutLineup" class="list-group-item" ng-repeat="skater in skatersToChoseFrom | orderBy:'name()'" ng-click="skater.chose()">
+                <span class="skater-name" ng-bind="skater.name()"></span>
+                <span class="badge badge-blocker" ng-show="skater.blocker()">Blocker</span>
+                <span class="badge badge-tracklead" ng-show="skater.trackLead()">Track Lead</span>
+                <span class="badge badge-pivot" ng-show="skater.pivot()">Pivot</span>
+                <span class="badge badge-jammer" ng-show="skater.jammer()">Jammer</span>
             </a>
         </div>
     </div>

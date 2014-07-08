@@ -142,13 +142,25 @@ textarea {
     border: 1px solid #3071a9;
 }
 
-#boutLineup table > tbody > tr > td:first-child {
+#boutLineup table > tbody > tr > td:last-child {
     cursor: inherit;
     border: 1px dotted transparent;
+    width: 121px;
 }
 
-#boutLineup table > tbody > tr > td:first-child:hover {
-    border: 1px dotted transparent;
+#boutLineup table > tbody > tr > td:last-child:hover {
+    border: 1px solid transparent;
+}
+
+#boutLineup table > tbody > tr.done > td {
+    text-decoration: line-through;
+}
+
+span.penalty.active {
+    color:#39b3d7;
+}
+span.penalty.active:hover {
+    color:#c9302c;
 }
 
 
