@@ -8,7 +8,7 @@ namespace mvcworkspace.Models
 {
     public interface IRequestAuthorizationService
     {
-        bool IsAuthorized(string actionName);
+        bool IsAuthorized(string actionName, HttpRequestBase request);
     }
 
     public class RequestAuthorizationService : IRequestAuthorizationService
@@ -24,10 +24,10 @@ namespace mvcworkspace.Models
             _RequestFactory       = requestFactory;
         }
 
-        public bool IsAuthorized(string actionName)
+        public bool IsAuthorized(string actionName, HttpRequestBase request)
         {
             var link                 = ResolveLink(actionName);
-            var requestContext       = _RequestFactory.BuildCoderRequestContext();
+            var requestContext       = _RequestFactory.BuildCoderRequestContext(request);
             var authorizationRequest = new LinkAuthorizationRequest(requestContext, link);
             var isAuthorized         = _AuthorizationService.IsAuthorized(authorizationRequest);
 
