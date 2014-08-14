@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using mvcworkspace.Models;
 using workspace;
 
 namespace mvcworkspace.filters
@@ -14,32 +15,33 @@ namespace mvcworkspace.filters
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
     public class MedidataAuthorizedAttribute : FilterAttribute, IAuthorizationFilter
     {
-        private readonly ILinkAuthorizationService _AuthorizationService;
-        private readonly ICoderRequestContextFactory _RequestFactory;
-        private readonly String _ControllerName;
+        private readonly IRequestAuthorizationService _AuthorizationService;
+        private readonly String                       _ControllerActionName;
 
         internal MedidataAuthorizedAttribute(
-            string controllerName,
-            IFactory<ILinkAuthorizationService> authorizationServiceFactory,
-            ICoderRequestContextFactory requestContextFactory)
+            string controllerActionName,
+            IRequestAuthorizationService authorizationService)
         {
-            _AuthorizationService = authorizationServiceFactory.Build();
-            _ControllerName = controllerName;
-            _RequestFactory = requestContextFactory;
+            _AuthorizationService = authorizationService;
+            _ControllerActionName       = controllerActionName;
         }
 
-        public MedidataAuthorizedAttribute(string controllerName)
-            : this(controllerName, new LinkAuthorizationFactory(), new CoderRequestContextFactory())
+        public MedidataAuthorizedAttribute(string controllerActionName)
+            : this(controllerActionName, 
+                new RequestAuthorizationService(
+                    new LinkAuthorizationFactory(), 
+                    new CoderRequestContextFactory())
+                )
         {
         }
 
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            var isAuthorized = IsAuthorized();
+            var isAuthorized = _AuthorizationService.IsAuthorized(_ControllerActionName);
             if (isAuthorized) return;
 
             var notLoggedInRedirectPage = Config.CoderNotLoggedInRedirectUrl;
-            filterContext.Result = CreateUnauthorizedActionResult(notLoggedInRedirectPage, filterContext);
+            filterContext.Result        = CreateUnauthorizedActionResult(notLoggedInRedirectPage, filterContext);
         }
 
         /// <summary>
@@ -55,24 +57,6 @@ namespace mvcworkspace.filters
 
             var result = new RedirectResult(notLoggedInRedirectPage);
             return result;
-        }
-
-        private bool IsAuthorized()
-        {
-            var link = ResolveLink(_ControllerName);
-            var requestContext = _RequestFactory.BuildCoderRequestContext();
-            var request = new LinkAuthorizationRequest(requestContext, link);
-
-            var isAuthorized = _AuthorizationService.IsAuthorized(request);
-
-            return isAuthorized;
-        }
-
-        // TODO: EVALUTE THIS
-        private Link ResolveLink(string linkName)
-        {
-            var link = new Link(linkName, string.Empty);
-            return link;
         }
     }
 }

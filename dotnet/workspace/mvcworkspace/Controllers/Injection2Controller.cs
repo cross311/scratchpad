@@ -3,33 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using mvcworkspace.Models;
 using workspace;
 
 namespace mvcworkspace.Controllers
 {
     public class Injection2Controller : Controller
     {
-        private static readonly Link                 _ControllerLink = new Link("Injection", string.Empty);
-        private readonly ILinkAuthorizationService   _AuthorizationService;
-        private readonly ICoderRequestContextFactory _CoderRequestContextFactory;
+       private const string                            _ControllerActionName = @"Injection2";
+        private readonly IRequestAuthorizationService   _AuthorizationService;
 
         public Injection2Controller(
-            IFactory<ILinkAuthorizationService> linkAuthorizationServiceFactory,
-            ICoderRequestContextFactory coderRequestContextFactory)
+            IRequestAuthorizationService authorizationService)
         {
-            _AuthorizationService = linkAuthorizationServiceFactory.Build();
-            _CoderRequestContextFactory = coderRequestContextFactory;
+            _AuthorizationService = authorizationService;
         }
 
 
         //
-        // GET: /Injection2/
+        // GET: /Injection/
 
         public ActionResult Index()
         {
-            var requestContext    = _CoderRequestContextFactory.BuildCoderRequestContext();
-            var authorizedRequest = new LinkAuthorizationRequest(requestContext, _ControllerLink);
-            var isAuthorized      = _AuthorizationService.IsAuthorized(authorizedRequest);
+            // this must be done in each
+            // action because we need to return
+            // and redirection result
+            var isAuthorized                = _AuthorizationService.IsAuthorized(_ControllerActionName);
 
             if (!isAuthorized)
             {
