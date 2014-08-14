@@ -28,7 +28,7 @@ namespace mvcworkspace.Controllers
             // this must be done in each
             // action because we need to return
             // and redirection result
-            var isAuthorized                = _AuthorizationService.IsAuthorized(_ControllerActionName);
+            var isAuthorized                = _AuthorizationService.IsAuthorized(_ControllerActionName, Request);
 
             if (!isAuthorized)
             {

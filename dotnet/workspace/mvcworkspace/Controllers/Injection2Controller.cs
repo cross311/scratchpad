@@ -10,7 +10,7 @@ namespace mvcworkspace.Controllers
 {
     public class Injection2Controller : Controller
     {
-       private const string                            _ControllerActionName = @"Injection2";
+       private const string                             _ControllerActionName = @"Injection2";
         private readonly IRequestAuthorizationService   _AuthorizationService;
 
         public Injection2Controller(
@@ -28,7 +28,7 @@ namespace mvcworkspace.Controllers
             // this must be done in each
             // action because we need to return
             // and redirection result
-            var isAuthorized                = _AuthorizationService.IsAuthorized(_ControllerActionName);
+            var isAuthorized                = _AuthorizationService.IsAuthorized(_ControllerActionName, Request);
 
             if (!isAuthorized)
             {
