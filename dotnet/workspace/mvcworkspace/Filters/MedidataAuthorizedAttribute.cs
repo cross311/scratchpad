@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
 using mvcworkspace.Models;
@@ -37,7 +38,8 @@ namespace mvcworkspace.filters
 
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            var isAuthorized = _AuthorizationService.IsAuthorized(_ControllerActionName);
+            var request = filterContext.HttpContext.Request;
+            var isAuthorized = _AuthorizationService.IsAuthorized(_ControllerActionName, request);
             if (isAuthorized) return;
 
             var notLoggedInRedirectPage = Config.CoderNotLoggedInRedirectUrl;
