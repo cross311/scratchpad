@@ -10,7 +10,12 @@ namespace workspace
 
     public interface ICoderRequestContextFactory
     {
-        CoderRequestContext BuildCoderRequestContext();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="headers">Need the headers to pull user id from them</param>
+        /// <returns></returns>
+        CoderRequestContext BuildCoderRequestContext(HttpRequestBase request);
     }
 
     public interface IFactory<T>
@@ -28,7 +33,7 @@ namespace workspace
 
     public class CoderRequestContextFactory : ICoderRequestContextFactory
     {
-        public CoderRequestContext BuildCoderRequestContext()
+        public CoderRequestContext BuildCoderRequestContext(HttpRequestBase request)
         {
             throw new NotImplementedException();
         }
