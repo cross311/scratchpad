@@ -161,7 +161,7 @@ var jamService = function(jamSkater){
     };
 
     var setJammer = function (jam, boutSkater) {
-        if(jam.jammer.boutSkater){
+        if(jam.jammer && jam.jammer.boutSkater){
             jam.jammer.boutSkater.timesJammer--;
             jam.jammer.boutSkater.jams--;
         }
@@ -171,7 +171,7 @@ var jamService = function(jamSkater){
         jam.jammer.jammer = true;
     };
     var setPivot = function (jam, boutSkater) {
-        if(jam.pivot.boutSkater) {
+        if(jam.pivot && jam.pivot.boutSkater) {
             jam.pivot.boutSkater.timesPivot--;
             jam.pivot.boutSkater.jams--;
             jam.jammer.jammer = true;
@@ -182,7 +182,7 @@ var jamService = function(jamSkater){
         jam.pivot.pivot = true;
     };
     var setBlocker1 = function (jam, boutSkater) {
-        if(jam.blocker1.boutSkater) {
+        if(jam.blocker1 && jam.blocker1.boutSkater) {
             jam.blocker1.boutSkater.timesBlocker--;
             jam.blocker1.boutSkater.jams--;
         }
@@ -192,7 +192,7 @@ var jamService = function(jamSkater){
         jam.blocker1.blocker = true;
     };
     var setBlocker2 = function (jam, boutSkater) {
-        if(jam.blocker2.boutSkater) {
+        if(jam.blocker2 && jam.blocker2.boutSkater) {
             jam.blocker2.boutSkater.timesBlocker--;
             jam.blocker2.boutSkater.jams--;
         }
@@ -202,7 +202,7 @@ var jamService = function(jamSkater){
         jam.blocker2.blocker = true;
     };
     var setBlocker3 = function (jam, boutSkater) {
-        if(jam.blocker3.boutSkater) {
+        if(jam.blocker3 && jam.blocker3.boutSkater) {
             jam.blocker3.boutSkater.timesBlocker--;
             jam.blocker3.boutSkater.jams--;
         }
@@ -257,7 +257,7 @@ var lineupsCtrl = function($scope) {
 
     $scope.chooseJammer = function(selectedJam){
         var callback = function(chosenSkater){
-            if(selectedJam.jammer.name && selectedJam.jammer.name() === chosenSkater.name()) return;
+            if(selectedJam.jammer && selectedJam.jammer.name() && selectedJam.jammer.name() === chosenSkater.name()) return;
             jam.setJammer(selectedJam, chosenSkater);
         }
         var filter = function (skater) {
@@ -268,7 +268,7 @@ var lineupsCtrl = function($scope) {
 
     $scope.choosePivot = function(selectedJam){
         var callback = function(chosenSkater){
-            if(selectedJam.pivot.name && selectedJam.pivot.name() === chosenSkater.name()) return;
+            if(selectedJam.pivot && selectedJam.pivot.name() && selectedJam.pivot.name() === chosenSkater.name()) return;
             jam.setPivot(selectedJam, chosenSkater);
         }
         var filter = function (skater) {
@@ -279,7 +279,7 @@ var lineupsCtrl = function($scope) {
 
     $scope.chooseBlocker1 = function(selectedJam){
         var callback = function(chosenSkater){
-            if(selectedJam.blocker1.name && selectedJam.blocker1.name() === chosenSkater.name()) return;
+            if(selectedJam.blocker1 && selectedJam.blocker1.name() && selectedJam.blocker1.name() === chosenSkater.name()) return;
             jam.setBlocker1(selectedJam, chosenSkater);
         }
         var filter = function (skater) {
@@ -290,7 +290,7 @@ var lineupsCtrl = function($scope) {
 
     $scope.chooseBlocker2 = function(selectedJam){
         var callback = function(chosenSkater){
-            if(selectedJam.blocker2.name && selectedJam.blocker2.name() === chosenSkater.name()) return;
+            if(selectedJam.blocker2 && selectedJam.blocker2.name() && selectedJam.blocker2.name() === chosenSkater.name()) return;
             jam.setBlocker2(selectedJam, chosenSkater);
         }
         var filter = function (skater) {
@@ -301,7 +301,7 @@ var lineupsCtrl = function($scope) {
 
     $scope.chooseBlocker3 = function(selectedJam){
         var callback = function(chosenSkater){
-            if(selectedJam.blocker3.name && selectedJam.blocker3.name() === chosenSkater.name()) return;
+            if(selectedJam.blocker3 && selectedJam.blocker3.name() && selectedJam.blocker3.name() === chosenSkater.name()) return;
             jam.setBlocker3(selectedJam, chosenSkater);
         }
         var filter = function (skater) {
