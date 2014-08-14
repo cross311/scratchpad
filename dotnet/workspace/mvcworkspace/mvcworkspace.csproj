@@ -98,6 +98,8 @@
     <Compile Include="Config.cs" />
     <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\Attribute2Controller.cs" />
+    <Compile Include="Controllers\Attribute3Controller.cs" />
+    <Compile Include="Controllers\Injection3Controller.cs" />
     <Compile Include="Controllers\Injection2Controller.cs" />
     <Compile Include="Controllers\InjectionController.cs" />
     <Compile Include="Filters\MedidataAuthorizedAttribute.cs" />

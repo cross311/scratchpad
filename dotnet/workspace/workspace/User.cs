@@ -5,7 +5,7 @@ using System.Text;
 
 namespace workspace
 {
-    class User
+    public class User
     {
     }
 }
