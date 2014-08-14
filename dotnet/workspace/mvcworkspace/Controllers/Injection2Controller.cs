@@ -27,7 +27,8 @@ namespace mvcworkspace.Controllers
 
         public ActionResult Index()
         {
-            var requestContext    = _CoderRequestContextFactory.BuildCoderRequestContext();
+            var headers           = Request.Headers;
+            var requestContext    = _CoderRequestContextFactory.BuildCoderRequestContext(headers);
             var authorizedRequest = new LinkAuthorizationRequest(requestContext, _ControllerLink);
             var isAuthorized      = _AuthorizationService.IsAuthorized(authorizedRequest);
 
